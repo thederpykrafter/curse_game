@@ -1,6 +1,7 @@
 CC = gcc
 LANG = c
 CFLAGS = -g
+LFLAGS = -lncurses
 OUT_FILE = test
 
 default: all
@@ -11,7 +12,7 @@ test: build run
 
 build: src/main.$(LANG)
 	@if [ ! -d bin ]; then mkdir bin; fi
-	$(CC) $(CFLAGS) src/main.$(LANG) -o bin/$(OUT_FILE)
+	$(CC) $(CFLAGS) src/main.$(LANG) $(LFLAGS) -o bin/$(OUT_FILE)
 
 install: bin/$(OUT_FILE)
 	cp -rf bin/$(OUT_FILE) /usr/bin
