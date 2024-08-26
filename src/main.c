@@ -1,27 +1,27 @@
 #include "common.h"
 
 int main() {
-	WINDOW* win = initscr();
-	raw();
-	noecho();
-	keypad(win, true);
-	nodelay(win, true);
+  WINDOW *win = initscr();
+  raw();
+  noecho();
+  keypad(win, true);
+  nodelay(win, true);
 
-	int pressed;
-	
-	while (true) {
-		clear();
+  int pressed;
 
-		mvprintw(0, 0, "Running");
-		refresh();
+  while (true) {
+    clear();
 
-		napms(1000 / 60);
+    mvprintw(0, 0, "Running");
+    refresh();
 
-		pressed = wgetch(win);
-		if (pressed == 113 || pressed == 27) { // q || esc
-			break;
-		}
-	}
-	endwin();
-	return 0;
+    napms(1000 / 60);
+
+    pressed = wgetch(win);
+    if (pressed == 113 || pressed == 27) { // q || esc
+      break;
+    }
+  }
+  endwin();
+  return 0;
 }
