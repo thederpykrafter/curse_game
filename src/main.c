@@ -1,5 +1,7 @@
-#include "common.h"
 #include <curses.h>
+#include <unistd.h>
+#include <stdbool.h>
+#include "keys.h"
 
 int winWidth, winHeight;
 int keyPressed;
@@ -10,6 +12,7 @@ void handleKeys(WINDOW *win) {
   switch (keyPressed) {
     case KEYS_Q:
     case KEYS_ESC:
+    case KEYS_CTRL_C:
       running = false;
     case KEYS_CTRL_Q:
       mvprintw(winWidth - 1, 0, "ctrl + q");
