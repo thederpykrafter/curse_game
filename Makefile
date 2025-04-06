@@ -1,6 +1,6 @@
 CC = gcc
 LANG = c
-CFLAGS = -g
+CFLAGS = -Wall -Werror
 LFLAGS = -lncurses
 OUT_FILE = test
 
